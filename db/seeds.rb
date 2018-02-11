@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if User.all.count == 0
+  user = User.create! do |u|
+    u.email = "cwy@example.com"
+    u.password = "password"
+    u.password_confirmation = "password"
+  end
+
+  puts %{
+    create a user:
+       email: "cwy@example.com"
+    password: "password"
+  }
+end
