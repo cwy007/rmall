@@ -1,12 +1,13 @@
-<div class="row mt-3">
-  <div class="col-md-6">
+<div class="row">
+  <div class="col-md-6 mt-3">
     <% if @product.image.present? %>
       <%= image_tag @product.image.medium.url, class: "img-thumbnail mx-auto d-block" %>
     <% else %>
       <%= image_tag "http://via.placeholder.com/400x400?text='NO+Pic'", class: "img-thumbnail mx-auto d-block" %>
     <% end %>
   </div>
-  <div class="col-md-6">
+  
+  <div class="col-md-6 mt-3">
     <h2 class="text-center"><%= @product.title %></h2>
     <p><%= simple_format @product.description %></p>
     <div class="text-danger bg-light p-2 my-2">
@@ -22,9 +23,10 @@
       <%= link_to "加入购物车", '#', class: "btn btn-danger btn-lg disabled" %>
     </div>
   </div>
-  <div class="mx-auto d-block mt-5">
-    <%= link_to "Back to products", admin_products_path, class: "btn btn-light" %>
-    <%= link_to "Edit", edit_admin_product_path(@product), class: "btn btn-dark" %>
-    <%= link_to "Delete", admin_product_path(@product), method: :delete, class: "btn btn-danger" %>
-  </div>
+</div>
+
+<div class="text-center my-5">
+  <%= link_to "Back to products", admin_products_path, class: "btn btn-light" %>
+  <%= link_to "Edit", edit_admin_product_path(@product), class: "btn btn-dark" %>
+  <%= link_to "Delete", admin_product_path(@product), method: :delete, class: "btn btn-danger" %>
 </div>
