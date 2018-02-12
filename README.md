@@ -14,3 +14,27 @@ rails s
 
 2. visit
 http://localhost:3000
+
+3. rebuild system
+
+lib/tasks/dev.rake
+```shell
+rake dev:build
+
+or
+
+rake dev:rebuild
+```
+
+4. two roles (admin, user)
+
+db/seeds.rb
+```
+create an user:
+   email: "cwy@example.com"
+password: "password"
+
+create an admin:
+   email: "cwy@example.com"
+password: "password"
+```
