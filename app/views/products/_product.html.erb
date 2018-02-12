@@ -10,7 +10,7 @@
     <div class="card-body">
       <h5 class="card-title text-center"><%= product.title %></h5>
       <p class="card-text text-center">
-        <%= product.description %>
+        <%= product.description.truncate(27, separator: ' ') %>
       </p>
     </div>
     <div class="card-footer text-center">
