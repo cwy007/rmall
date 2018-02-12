@@ -1,0 +1,23 @@
+<%= simple_form_for [:admin, @product] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :quantity %>
+  <%= f.input :price %>
+
+  <% if @product.image.present? %>
+    <span>目前商品图</span> <br>
+    <%= image_tag(@product.image.thumb.url) %>
+  <% end %>
+
+  <%= f.input :image, as: :file %>
+
+  <%= f.submit data: { disable_with: "Submitting..." }, class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<script type="text/javascript">
+  $(":file").filestyle({
+    buttonBefore: true,
+    text: "Choose image",
+    placeholder: "No image"
+  });
+</script>

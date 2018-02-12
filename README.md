@@ -1,24 +1,40 @@
-# README
+# Getting started
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. in terminal
 
-Things you may want to cover:
+```shell
+git clone git@github.com:cwy007/rmall.git
+cd rmall
+cp config/database.yml.default config/database.yml
+cp config/secrets.yml.default config/secrets.yml
+bundle check
+bundle install
+rails s
+```
 
-* Ruby version
+2. visit
+http://localhost:3000
 
-* System dependencies
+3. rebuild system
 
-* Configuration
+lib/tasks/dev.rake
+```shell
+rake dev:build
 
-* Database creation
+or
 
-* Database initialization
+rake dev:rebuild
+```
 
-* How to run the test suite
+4. two roles (admin, user)
 
-* Services (job queues, cache servers, search engines, etc.)
+db/seeds.rb
+```
+create an user:
+   email: "cwy@example.com"
+password: "password"
 
-* Deployment instructions
-
-* ...
+create an admin:
+   email: "cwy@example.com"
+password: "password"
+```
