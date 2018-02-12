@@ -5,7 +5,7 @@ class Admin::ProductsController < ApplicationController
   layout "admin"
 
   def index
-    @products = Product.all
+    @products = Product.all.recent.page(params[:page]).per(10)
   end
 
   def show

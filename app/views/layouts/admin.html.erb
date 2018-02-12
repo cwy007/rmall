@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rmall</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,9 +17,9 @@
       <div class="row">
         <div class="col-md-2">
           <div class="list-group mt-5">
-            <%= link_to "Products", admin_products_path, class: "list-group-item" %>
-            <%= link_to "link", '#', class: "list-group-item" %>
-            <%= link_to "other link", '#', class: "list-group-item" %>
+            <%= link_to "Products", admin_products_path, class: "list-group-item list-group-item-action #{ active_class(admin_products_path) }" %>
+            <%= link_to "link", '#', class: "list-group-item list-group-item-action" %>
+            <%= link_to "other link", '#', class: "list-group-item list-group-item-action" %>
           </div>
         </div>
         <div class="col-md-10">

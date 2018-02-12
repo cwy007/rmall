@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if User.all.count == 0
+if User.count == 0
   user = User.create! do |u|
     u.email                 = "cwy@example.com"
     u.password              = "password"
@@ -29,4 +29,23 @@ if User.all.count == 0
        email: "cwy@example.com"
     password: "password"
   }
+end
+
+if Product.count == 0
+  imgs = [
+    "https://img.alicdn.com/imgextra/i4/1669409267/TB22hqeo26H8KJjSspmXXb2WXXa_!!1669409267.jpg_430x430q90.jpg",
+    "https://img.alicdn.com/imgextra/i1/1776456424/TB2BGNPXdLO8KJjSZFxXXaGEVXa_!!1776456424.jpg_430x430q90.jpg",
+    "https://img.alicdn.com/imgextra/i4/1669409267/TB2tSzNXSBYBeNjy0FeXXbnmFXa_!!1669409267.jpg_430x430q90.jpg",
+    "https://img.alicdn.com/imgextra/i4/1669409267/TB2zph.XH1YBuNjSszhXXcUsFXa_!!1669409267.jpg_430x430q90.jpg",
+    "https://img.alicdn.com/imgextra/i3/1669409267/TB1tdg.X_lYBeNjSszcXXbwhFXa_!!0-item_pic.jpg_430x430q90.jpg"
+  ]
+  30.times { |i|
+    Product.create!(
+            title: "#{i+1} #{Faker::Commerce.product_name}",
+      description: Faker::Lorem.paragraph,
+            price: Faker::Commerce.price,
+         quantity: rand(500),
+            image: open(imgs.sample),
+  )}
+  puts "新建10个商品"
 end

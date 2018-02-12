@@ -1,5 +1,4 @@
-<% provide(:title, "Admin products show") %>
-
+<% provide(:title, "Product show") %>
 <div class="row">
   <div class="col-md-6 mt-3">
     <% if @product.image.present? %>
@@ -22,13 +21,7 @@
     <hr>
 
     <div class="text-right">
-      <%= link_to "加入购物车", '#', class: "btn btn-danger btn-lg disabled" %>
+      <%= link_to "加入购物车", '#', class: "btn btn-danger btn-lg" %>
     </div>
   </div>
-</div>
-
-<div class="text-center my-5">
-  <%= link_to "Back to products", admin_products_path, class: "btn btn-light" %>
-  <%= link_to "Edit", edit_admin_product_path(@product), class: "btn btn-dark" %>
-  <%= link_to "Delete", admin_product_path(@product), method: :delete, class: "btn btn-danger" %>
 </div>
