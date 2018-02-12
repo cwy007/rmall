@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if User.all.count == 0
+if User.count == 0
   user = User.create! do |u|
     u.email                 = "cwy@example.com"
     u.password              = "password"
@@ -29,4 +29,16 @@ if User.all.count == 0
        email: "cwy@example.com"
     password: "password"
   }
+end
+
+if Product.count == 0
+  10.times { |i|
+    Product.create!(
+            title: "#{i+1} 坚果Pro",
+      description: "锤子手机 细红线",
+            price: 2288,
+         quantity: 5,
+            image: open("http://img13.360buyimg.com/n1/s450x450_jfs/t5527/223/1660932474/149818/343ed1d7/59130e4cNa6d07fe0.jpg"),
+  )}
+  puts "新建10个商品"
 end
