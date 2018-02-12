@@ -1,3 +1,5 @@
+<% provide(:title, "Admin products show") %>
+
 <div class="row">
   <div class="col-md-6 mt-3">
     <% if @product.image.present? %>
@@ -6,7 +8,7 @@
       <%= image_tag "http://via.placeholder.com/400x400?text='NO+Pic'", class: "img-thumbnail mx-auto d-block" %>
     <% end %>
   </div>
-  
+
   <div class="col-md-6 mt-3">
     <h2 class="text-center"><%= @product.title %></h2>
     <p><%= simple_format @product.description %></p>
