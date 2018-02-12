@@ -8,13 +8,24 @@
 
 if User.all.count == 0
   user = User.create! do |u|
-    u.email = "cwy@example.com"
-    u.password = "password"
+    u.email                 = "cwy@example.com"
+    u.password              = "password"
     u.password_confirmation = "password"
   end
 
+  admin = User.create! do |u|
+    u.email                 = "admin@example.com"
+    u.password              = "password"
+    u.password_confirmation = "password"
+    u.is_admin              = true
+  end
+
   puts %{
-    create a user:
+    create an user:
+       email: "cwy@example.com"
+    password: "password"
+
+    create an admin:
        email: "cwy@example.com"
     password: "password"
   }
