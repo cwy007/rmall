@@ -1,0 +1,22 @@
+<h1 class="text-center mt-3">Product List</h1>
+
+<div class="text-right my-3">
+  <%= link_to "Add new product", new_admin_product_path, class: "btn btn-primary btn-lg" %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Options</th>
+      <th>Create at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @products %>
+  </tbody>
+</table>

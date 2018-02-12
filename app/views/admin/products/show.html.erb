@@ -1,0 +1,23 @@
+<h1 class="text-center my-3">Title: <%= @product.title %></h1>
+
+<div class="card my-3">
+  <div class="card-header">
+    product details
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Title: <%= @product.title %></h4>
+     <p class="card-text">
+      Description: <%= simple_format @product.description %> <br>
+      Price: <%= @product.price %> <br>
+      Quantity: <%= @product.quantity %> <br>
+      Created at: <%= @product.created_at %> <br>
+      Updated at: <%= @product.updated_at %>
+    </p>
+
+    <%= link_to "Edit", edit_admin_product_path(@product), class: "btn btn-primary mr-1" %>
+    <%= link_to "Delete", admin_product_path(@product), method: :delete, class: "btn btn-danger" %>
+    <br>
+  </div>
+</div>
+
+<%= link_to "Back to products", admin_products_path, class: "btn btn-dark my-3 ml-3" %>
