@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
   end
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    member do
+      post :add_to_cart
+    end
+  end
   root to: 'products#index'
 end
 
@@ -36,4 +40,4 @@ end
 #                 products GET    /products(.:format)                products#index
 #                  product GET    /products/:id(.:format)            products#show
 #                     root GET    /                                  products#index
-# 
+#
