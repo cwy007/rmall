@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       post :add_to_cart
     end
   end
-  resources :carts 
+  resources :carts, only: [:index] do
+    collection do
+      delete :empty
+    end
+  end
   root to: 'products#index'
 end
 
