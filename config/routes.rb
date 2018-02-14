@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       delete :empty
     end
   end
+  resources :cart_items, only: [:destroy]
   root to: 'products#index'
 end
 
