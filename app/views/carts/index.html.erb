@@ -18,34 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_items.each do |cart_item| %>
-          <tr>
-            <td>
-              <%= link_to product_path(cart_item.product) do %>
-                <% if cart_item.product.image.present? %>
-                  <%= image_tag(cart_item.product.image.thumb.url, class: "img-thumbnail") %>
-                <% else %>
-                  <%= image_tag "http://via.placeholder.com/200x200?text=No+Pic", class: "img-thumbnail" %>
-                <% end %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to cart_item.product.title, product_path(cart_item.product) %>
-            </td>
-            <td>
-              <%= cart_item.product.price %>
-            </td>
-            <td>
-              <%= simple_form_for cart_item, url: cart_item_path(cart_item), html: { class: "form-inline" } do |f| %>
-                <%= f.input :quantity, collection: 1..cart_item.product.quantity, label: false, input_html: { class: "mr-2" } %>
-                <%= f.submit "更新", data: { disable_with: "Submitting.." }, class: "btn btn-primary" %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to fa_icon("trash", class: "text-danger"), cart_item_path(cart_item), method: :delete %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: "cart_item", collection: @cart_items %>
       </tbody>
     </table>
 
