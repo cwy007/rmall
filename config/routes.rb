@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   resources :carts, only: [:index] do
     collection do
       delete :empty
+        get :checkout
     end
   end
   resources :cart_items, only: [:update, :destroy]
+  resources :orders 
   root to: 'products#index'
 end
 
@@ -46,5 +48,11 @@ end
 #      add_to_cart_product POST   /products/:id/add_to_cart(.:format) products#add_to_cart
 #                 products GET    /products(.:format)                 products#index
 #                  product GET    /products/:id(.:format)             products#show
+#              empty_carts DELETE /carts/empty(.:format)              carts#empty
+#           checkout_carts POST   /carts/checkout(.:format)           carts#checkout
+#                    carts GET    /carts(.:format)                    carts#index
+#                cart_item PATCH  /cart_items/:id(.:format)           cart_items#update
+#                          PUT    /cart_items/:id(.:format)           cart_items#update
+#                          DELETE /cart_items/:id(.:format)           cart_items#destroy
 #                     root GET    /                                   products#index
 #
