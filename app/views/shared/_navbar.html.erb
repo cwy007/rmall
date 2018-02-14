@@ -15,7 +15,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item m-auto">
-          <%= link_to '#', class: "nav-link btn btn-dark py-0 mr-5" do %>
+          <%= link_to carts_path, class: "nav-link btn btn-dark py-0 mr-5" do %>
             <%= fa_icon("shopping-cart", class: "fa-2x") %>
             <span class="badge badge-danger align-top">
               <%= current_cart.products.count %>

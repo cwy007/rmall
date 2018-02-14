@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post :add_to_cart
     end
   end
+  resources :carts 
   root to: 'products#index'
 end
 
@@ -41,4 +42,4 @@ end
 #                 products GET    /products(.:format)                 products#index
 #                  product GET    /products/:id(.:format)             products#show
 #                     root GET    /                                   products#index
-# 
+#
