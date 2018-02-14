@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="text-center my-3">购物车</h2>
+
+    <div class="clearfix">
+      <%= link_to "清空购物车", empty_carts_path, method: :delete,
+        class: "float-right my-3 text-danger", style: "text-decoration: underline",
+        data: { confirm: "你确定要清空这个购物车吗？" } %>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">商品资讯</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>操作选项</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "cart_item", collection: @cart_items %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div class="total clearfix">
+      <span class="pull-right">
+        <span>
+          总计 <span class="text-danger"><%= current_cart.total_price %></span> RMB
+        </span>
+      </span>
+    </div>
+
+    <hr>
+
+    <div class="checkout clearfix">
+      <div class="pull-right">
+        <%= link_to "确认结账", '#',  method: :post, class: "btn btn-lg btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
