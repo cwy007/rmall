@@ -37,7 +37,7 @@
             </td>
             <td>
               <%= simple_form_for cart_item, url: cart_item_path(cart_item), html: { class: "form-inline" } do |f| %>
-                <%= f.input :quantity, collection: [1,2,3,4,5], label: false, input_html: { class: "mr-2" } %>
+                <%= f.input :quantity, collection: 1..cart_item.product.quantity, label: false, input_html: { class: "mr-2" } %>
                 <%= f.submit "更新", data: { disable_with: "Submitting.." }, class: "btn btn-primary" %>
               <% end %>
             </td>
