@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <% current_cart.cart_items.each do |cart_item| %>
+        <% @cart_items.each do |cart_item| %>
           <tr>
             <td>
               <%= link_to product_path(cart_item.product) do %>
@@ -40,7 +40,9 @@
 
     <div class="total clearfix">
       <span class="pull-right">
-        总计 xxx RMB
+        <span>
+          总计 <span class="text-danger"><%= current_cart.total_price %></span> RMB
+        </span>
       </span>
     </div>
 

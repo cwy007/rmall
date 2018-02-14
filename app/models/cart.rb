@@ -15,6 +15,17 @@ class Cart < ApplicationRecord
     ci = cart_items.build
     ci.product = product
     ci.quantity = 1
-    ci.save 
+    ci.save
+  end
+
+  def total_price
+    sum = 0
+    cis = CartItem.includes(:product).where(cart_id: id)
+    cis.each do |ci|
+      if ci.product.price.present?
+        sum += ci.quantity * ci.product.price
+      end
+    end
+    sum
   end
 end
