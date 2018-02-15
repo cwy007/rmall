@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   resources :carts, only: [:index] do
     collection do
       delete :empty
-        get :checkout
+         get :checkout
     end
   end
   resources :cart_items, only: [:update, :destroy]
-  resources :orders 
+  resources :orders
   root to: 'products#index'
 end
 
