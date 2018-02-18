@@ -3,7 +3,7 @@
     <h2 class="text-center my-3">订单明细</h2>
     <p>
       <span class="bg-light">订单号：<%= @order.token %></span> <br>
-      <span class="bg-light">生成日期：<%= @order.created_at.to_s(:long) %></span> 
+      <span class="bg-light">生成日期：<%= @order.created_at.to_s(:long) %></span>
     </p>
 
     <table class="table table-bordered">
@@ -61,5 +61,14 @@
         </tr>
       </tbody>
     </table>
+
+    <% if !@order.is_paid? %>
+      <div class="text-right my-3">
+        <%= link_to "以支付宝支付", pay_with_alipay_order_path(@order.token), method: :post, class: "btn btn-primary" %>
+        <%= link_to fa_icon("weixin", text: "以微信支付"), pay_with_wechat_order_path(@order.token), method: :post, class: "btn btn-success" %>
+      </div>
+    <% else %>
+      <p class="text-center text-danger h4">此订单已完成付款！</p>
+    <% end %>
   </div>
 </div>
