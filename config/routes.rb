@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   end
   resources :cart_items, only: [:update, :destroy]
   resources :orders
+  namespace :account do
+    resources :orders, only: [:index]
+  end
   root to: 'products#index'
 end
 
@@ -63,4 +66,4 @@ end
 #                          PUT    /orders/:id(.:format)               orders#update
 #                          DELETE /orders/:id(.:format)               orders#destroy
 #                     root GET    /                                   products#index
-# 
+#
