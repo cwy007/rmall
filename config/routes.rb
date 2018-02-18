@@ -11,9 +11,14 @@ Rails.application.routes.draw do
   resources :carts, only: [:index] do
     collection do
       delete :empty
+         get :checkout
     end
   end
   resources :cart_items, only: [:update, :destroy]
+  resources :orders
+  namespace :account do
+    resources :orders, only: [:index]
+  end
   root to: 'products#index'
 end
 
@@ -46,5 +51,19 @@ end
 #      add_to_cart_product POST   /products/:id/add_to_cart(.:format) products#add_to_cart
 #                 products GET    /products(.:format)                 products#index
 #                  product GET    /products/:id(.:format)             products#show
+#              empty_carts DELETE /carts/empty(.:format)              carts#empty
+#           checkout_carts GET    /carts/checkout(.:format)           carts#checkout
+#                    carts GET    /carts(.:format)                    carts#index
+#                cart_item PATCH  /cart_items/:id(.:format)           cart_items#update
+#                          PUT    /cart_items/:id(.:format)           cart_items#update
+#                          DELETE /cart_items/:id(.:format)           cart_items#destroy
+#                   orders GET    /orders(.:format)                   orders#index
+#                          POST   /orders(.:format)                   orders#create
+#                new_order GET    /orders/new(.:format)               orders#new
+#               edit_order GET    /orders/:id/edit(.:format)          orders#edit
+#                    order GET    /orders/:id(.:format)               orders#show
+#                          PATCH  /orders/:id(.:format)               orders#update
+#                          PUT    /orders/:id(.:format)               orders#update
+#                          DELETE /orders/:id(.:format)               orders#destroy
 #                     root GET    /                                   products#index
 #
