@@ -12,5 +12,9 @@
 #
 
 class ProductList < ApplicationRecord
-  belongs_to :order 
+  belongs_to :order
+
+  def total_price
+    quantity * product_price
+  end
 end
