@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="my-3 text-center">购物明细</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">商品明细</th>
+            <th>单价</th>
+            <th>数量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+                <%= link_to product_path(cart_item.product) do %>
+                  <% if cart_item.product.image.present? %>
+                    <%= image_tag(cart_item.product.image.thumb.url, class: "img-thumbnail") %>
+                  <% else %>
+                    <%= image_tag "http://via.placeholder.com/200x200?text=No+Pic", class: "img-thumbnail" %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to cart_item.product.title, product_path(cart_item.product) %>
+              </td>
+              <td>
+                <%= cart_item.product.price %>
+              </td>
+              <td>
+                <%= cart_item.quantity %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <div class="total clearfix">
+      <span class="pull-right">
+        <span>
+          总计 <span class="text-danger"><%= current_cart.total_price %></span> RMB
+        </span>
+      </span>
+    </div>
+    <hr>
+    <h2 class="text-center">订单信息</h2>
+
+    <div class="order-form">
+      <%= simple_form_for @order do |f| %>
+        <fieldset>
+          <legend>订购人</legend>
+          <div class="form-group">
+            <%= f.input :billing_name %>
+          </div>
+          <div class="form-group">
+            <%= f.input :billing_address %>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>收件人</legend>
+          <div class="form-group">
+            <%= f.input :shipping_name %>
+          </div>
+          <div class="form-group">
+            <%= f.input :shipping_address %>
+          </div>
+        </fieldset>
+
+        <div class="checkout">
+          <%= f.submit "提交订单", class: "btn btn-lg btn-danger float-right mb-3",
+            data: { disable_with: "Submitting..." } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

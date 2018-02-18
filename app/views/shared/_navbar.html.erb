@@ -34,6 +34,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
               <%= link_to fa_icon("edit", text: "Edit profile"), edit_user_registration_path, class: "dropdown-item text-white bg-dark" %>
+              <%= link_to fa_icon("list", text: "My orders"), account_orders_path, class: "dropdown-item text-white bg-dark"  %>
               <div class="dropdown-divider"></div>
               <%= link_to fa_icon("sign-out", text: "Logout"), destroy_user_session_path, method: :delete, class: "dropdown-item text-white bg-dark" %>
             </div>
