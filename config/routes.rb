@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     end
   end
   resources :cart_items, only: [:update, :destroy]
-  resources :orders
+  resources :orders, only: [:show, :create] do
+    member do
+      post :pay_with_alipay
+      post :pay_with_wechat 
+    end
+  end
   namespace :account do
     resources :orders, only: [:index]
   end
@@ -65,5 +70,6 @@ end
 #                          PATCH  /orders/:id(.:format)               orders#update
 #                          PUT    /orders/:id(.:format)               orders#update
 #                          DELETE /orders/:id(.:format)               orders#destroy
+#           account_orders GET    /account/orders(.:format)           account/orders#index
 #                     root GET    /                                   products#index
 #
