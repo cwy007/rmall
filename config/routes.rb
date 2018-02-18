@@ -49,10 +49,18 @@ end
 #                 products GET    /products(.:format)                 products#index
 #                  product GET    /products/:id(.:format)             products#show
 #              empty_carts DELETE /carts/empty(.:format)              carts#empty
-#           checkout_carts POST   /carts/checkout(.:format)           carts#checkout
+#           checkout_carts GET    /carts/checkout(.:format)           carts#checkout
 #                    carts GET    /carts(.:format)                    carts#index
 #                cart_item PATCH  /cart_items/:id(.:format)           cart_items#update
 #                          PUT    /cart_items/:id(.:format)           cart_items#update
 #                          DELETE /cart_items/:id(.:format)           cart_items#destroy
+#                   orders GET    /orders(.:format)                   orders#index
+#                          POST   /orders(.:format)                   orders#create
+#                new_order GET    /orders/new(.:format)               orders#new
+#               edit_order GET    /orders/:id/edit(.:format)          orders#edit
+#                    order GET    /orders/:id(.:format)               orders#show
+#                          PATCH  /orders/:id(.:format)               orders#update
+#                          PUT    /orders/:id(.:format)               orders#update
+#                          DELETE /orders/:id(.:format)               orders#destroy
 #                     root GET    /                                   products#index
-#
+# 
