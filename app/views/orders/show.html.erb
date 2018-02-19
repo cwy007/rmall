@@ -1,6 +1,17 @@
 <div class="row">
   <div class="col-md-12">
-    <h2 class="text-center my-3">订单明细</h2>
+    <div class="clearfix">
+      <% if @order.order_placed? || @order.paid? %>
+        <%= link_to "申请取消订单", apply_to_cancel_order_path(@order.token), method: :post, class: "btn btn-info float-right mt-3" %>
+      <% end %>
+    </div>
+
+    <h2 class="text-center my-3">
+      订单明细 
+      <small>
+        <span class="align-text-bottom badge badge-pill badge-secondary"><%= @order.aasm_state %></span>
+      </small>
+    </h2>
     <p>
       <span class="bg-light">订单号：<%= @order.token %></span> <br>
       <span class="bg-light">生成日期：<%= @order.created_at.to_s(:long) %></span>
