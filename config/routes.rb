@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :admin do
     resources :products
+    resources :orders 
   end
   resources :products, only: [:index, :show] do
     member do
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create] do
     member do
       post :pay_with_alipay
-      post :pay_with_wechat 
+      post :pay_with_wechat
     end
   end
   namespace :account do
@@ -68,4 +69,4 @@ end
 #                    order GET    /orders/:id(.:format)                 orders#show
 #           account_orders GET    /account/orders(.:format)             account/orders#index
 #                     root GET    /                                     products#index
-# 
+#
