@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     member do
       post :pay_with_alipay
       post :pay_with_wechat
+      post :apply_to_cancel
     end
   end
   namespace :account do
@@ -80,6 +81,7 @@ end
 #                          DELETE /cart_items/:id(.:format)             cart_items#destroy
 #    pay_with_alipay_order POST   /orders/:id/pay_with_alipay(.:format) orders#pay_with_alipay
 #    pay_with_wechat_order POST   /orders/:id/pay_with_wechat(.:format) orders#pay_with_wechat
+#    apply_to_cancel_order POST   /orders/:id/apply_to_cancel(.:format) orders#apply_to_cancel
 #                   orders POST   /orders(.:format)                     orders#create
 #                    order GET    /orders/:id(.:format)                 orders#show
 #           account_orders GET    /account/orders(.:format)             account/orders#index

@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="text-center clearfix my-3">
+      订单明细 <br>
+      <small class="float-right">
+        <%= link_to "订单链接", admin_order_url(@order) %>
+      </small>
+    </h2>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th width="70%">商品明细</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小记</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @product_lists.each do |product_list| %>
+          <tr>
+            <td>
+              <%= product_list.product_name %>
+            </td>
+            <td>
+              <%= product_list.product_price %>
+            </td>
+            <td>
+              <%= product_list.quantity %>
+            </td>
+            <td>
+              <%= product_list.quantity * product_list.product_price %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="total clearfix">
+      <span class="float-right">
+        总计 <span class="text-danger lead"><%= @order.total %></span> ¥
+      </span>
+    </div>
+
+    <hr>
+
+    <h2 class="text-center my-3">寄送信息</h2>
+
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <tr>
+          <td>订购人</td>
+        </tr>
+        <tr>
+          <td>
+            <%= @order.billing_name %> - <%= @order.billing_address %>
+          </td>
+        </tr>
+        <tr>
+          <td>收件人</td>
+        </tr>
+        <tr>
+          <td>
+            <%= @order.shipping_name %> - <%= @order.shipping_address %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
