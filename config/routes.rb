@@ -2,7 +2,15 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :admin do
     resources :products
-    resources :orders 
+    resources :orders, only: [:index, :show] do
+      member do
+        post :cancel
+        post :ship
+        post :shipped
+        post :return
+      end
+    end
+    root to: 'products#index'
   end
   resources :products, only: [:index, :show] do
     member do
@@ -54,6 +62,13 @@ end
 #                          PATCH  /admin/products/:id(.:format)         admin/products#update
 #                          PUT    /admin/products/:id(.:format)         admin/products#update
 #                          DELETE /admin/products/:id(.:format)         admin/products#destroy
+#       cancel_admin_order POST   /admin/orders/:id/cancel(.:format)    admin/orders#cancel
+#         ship_admin_order POST   /admin/orders/:id/ship(.:format)      admin/orders#ship
+#      shipped_admin_order POST   /admin/orders/:id/shipped(.:format)   admin/orders#shipped
+#       return_admin_order POST   /admin/orders/:id/return(.:format)    admin/orders#return
+#             admin_orders GET    /admin/orders(.:format)               admin/orders#index
+#              admin_order GET    /admin/orders/:id(.:format)           admin/orders#show
+#               admin_root GET    /admin(.:format)                      admin/products#index
 #      add_to_cart_product POST   /products/:id/add_to_cart(.:format)   products#add_to_cart
 #                 products GET    /products(.:format)                   products#index
 #                  product GET    /products/:id(.:format)               products#show
@@ -69,4 +84,4 @@ end
 #                    order GET    /orders/:id(.:format)                 orders#show
 #           account_orders GET    /account/orders(.:format)             account/orders#index
 #                     root GET    /                                     products#index
-#
+# 
