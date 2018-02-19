@@ -47,5 +47,33 @@ if Product.count == 0
          quantity: rand(500),
             image: open(imgs.sample),
   )}
-  puts "新建10个商品"
+  puts "新建30个商品"
 end
+
+30.times do |i|
+  cart = Cart.create!
+  cart.products << Product.all.sample(4)
+  order = admin.orders.create!(
+       billing_name: "admin",
+    billing_address: "Henan China",
+      shipping_name: "admin",
+   shipping_address: "Beijing China",
+     payment_method: ["alipay", "weixin"].sample,
+              total: cart.total_price,
+              token: SecureRandom.uuid
+  )
+  if i % 3 == 0
+    order.make_payment!
+  end
+
+  cart.cart_items.each do |cart_item|
+    product_list = ProductList.new
+    product_list.order = order
+    product_list.product_name = cart_item.product.title
+    product_list.product_price = cart_item.product.price
+    product_list.quantity = cart_item.quantity
+    product_list.save
+  end
+  print "*"
+end
+puts "create 30 orders for admin"
