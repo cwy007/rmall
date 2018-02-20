@@ -15,6 +15,8 @@ class Admin::OrdersController < ApplicationController
   def ship
     @order.ship!
     OrderMailer.notify_ship(@order).deliver!
+    
+    flash[:notice] = "已经发邮件给用户#{@order.user.email}，提醒订单已发货"
     redirect_back(fallback_location: admin_root_path)
   end
 
@@ -26,6 +28,8 @@ class Admin::OrdersController < ApplicationController
   def cancel
     @order.cancel_order!
     OrderMailer.notify_cancel(@order).deliver!
+
+    flash[:notice] = "已经发邮件给用户#{@order.user.email}，提醒订单已取消"
     redirect_back(fallback_location: admin_root_path)
   end
 
