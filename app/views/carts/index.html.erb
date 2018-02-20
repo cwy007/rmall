@@ -1,3 +1,5 @@
+<% provide :title, 'carts#index' %>
+
 <div class="row">
   <div class="col-md-12">
     <h2 class="text-center my-3">购物车</h2>
@@ -34,10 +36,12 @@
 
     <hr>
 
-    <div class="checkout clearfix mb-3">
-      <div class="float-right">
-        <%= link_to "去结算", checkout_carts_path, class: "btn btn-lg btn-danger" %>
+    <% if @cart_items && @cart_items.count > 0 %>
+      <div class="checkout clearfix mb-3">
+        <div class="float-right">
+          <%= link_to "去结算", checkout_carts_path, class: "btn btn-lg btn-danger" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
