@@ -42,6 +42,8 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'kaminari'
 gem 'aasm'
+gem 'carrierwave-qiniu', '~> 1.1.5'
+gem 'qiniu', '>= 6.9.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
