@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -42,6 +40,10 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'kaminari'
 gem 'aasm'
+gem 'carrierwave-qiniu', '~> 1.1.5'
+gem 'qiniu', '>= 6.9.0'
+gem 'figaro'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,8 +51,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   gem 'awesome_rails_console'
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do
@@ -74,4 +77,8 @@ group :development, :test do
   gem 'hirb-unicode'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+end
+
+group :production do
+  gem 'pg'
 end

@@ -6,31 +6,30 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if User.count == 0
-  user = User.create! do |u|
-    u.email                 = "cwy@example.com"
-    u.password              = "password"
-    u.password_confirmation = "password"
-  end
-
-  admin = User.create! do |u|
-    u.email                 = "admin@example.com"
-    u.password              = "password"
-    u.password_confirmation = "password"
-    u.is_admin              = true
-  end
-
-  puts %{
-    create an user:
-       email: "cwy@example.com"
-    password: "password"
-
-    create an admin:
-       email: "cwy@example.com"
-    password: "password"
-  }
+# create two user
+User.destroy_all!
+user = User.create! do |u|
+  u.email                 = "cwy@example.com"
+  u.password              = "password"
+  u.password_confirmation = "password"
 end
+admin = User.create! do |u|
+  u.email                 = "admin@example.com"
+  u.password              = "password"
+  u.password_confirmation = "password"
+  u.is_admin              = true
+end
+puts %{
+  create an user:
+     email: "cwy@example.com"
+  password: "password"
 
+  create an admin:
+     email: "admin@example.com"
+  password: "password"
+}
+
+# seed fake products
 if Product.count == 0
   imgs = [
     "https://img.alicdn.com/imgextra/i4/1669409267/TB22hqeo26H8KJjSspmXXb2WXXa_!!1669409267.jpg_430x430q90.jpg",
@@ -50,6 +49,7 @@ if Product.count == 0
   puts "新建30个商品"
 end
 
+# create 30 orders for admin
 30.times do |i|
   cart = Cart.create!
   cart.products << Product.all.sample(4)
@@ -65,7 +65,6 @@ end
   if i % 3 == 0
     order.make_payment!
   end
-
   cart.cart_items.each do |cart_item|
     product_list = ProductList.new
     product_list.order = order
