@@ -7,7 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # create two user
-User.destroy_all!
+User.destroy_all
+Product.destroy_all
+Order.destroy_all
+Cart.destroy_all
+CartItem.destroy_all
+
 user = User.create! do |u|
   u.email                 = "cwy@example.com"
   u.password              = "password"
@@ -32,11 +37,11 @@ puts %{
 # seed fake products
 if Product.count == 0
   imgs = [
-    "https://img.alicdn.com/imgextra/i4/1669409267/TB22hqeo26H8KJjSspmXXb2WXXa_!!1669409267.jpg_430x430q90.jpg",
-    "https://img.alicdn.com/imgextra/i1/1776456424/TB2BGNPXdLO8KJjSZFxXXaGEVXa_!!1776456424.jpg_430x430q90.jpg",
-    "https://img.alicdn.com/imgextra/i4/1669409267/TB2tSzNXSBYBeNjy0FeXXbnmFXa_!!1669409267.jpg_430x430q90.jpg",
-    "https://img.alicdn.com/imgextra/i4/1669409267/TB2zph.XH1YBuNjSszhXXcUsFXa_!!1669409267.jpg_430x430q90.jpg",
-    "https://img.alicdn.com/imgextra/i3/1669409267/TB1tdg.X_lYBeNjSszcXXbwhFXa_!!0-item_pic.jpg_430x430q90.jpg"
+    'https://img.alicdn.com/img/bao/uploaded/i4/i3/1917047079/O1CN0122AEDoAg4hs7Bom_!!0-item_pic.jpg_400x400Q50s50.jpg',
+    'https://img.alicdn.com/img/bao/uploaded/i4/i4/1917047079/TB1EIEHa6DpK1RjSZFrXXa78VXa_!!0-item_pic.jpg_400x400Q50s50.jpg',
+    'https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB17ZV7RVXXXXaZXVXXXXXXXXXX_!!0-item_pic.jpg_460x460Q90.jpg',
+    'https://g-search1.alicdn.com/img/bao/uploaded/i4/i1/831562715/O1CN01aSCReP1VvVntNxe2a_!!0-item_pic.jpg_460x460Q90.jpg',
+    'https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB1An8PRFXXXXbUXVXXXXXXXXXX_!!0-item_pic.jpg_460x460Q90.jpg'
   ]
   30.times { |i|
     Product.create!(

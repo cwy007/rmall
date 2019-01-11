@@ -2,7 +2,7 @@
   <td>
     <%= link_to product_path(cart_item.product) do %>
     <% if cart_item.product.image.present? %>
-    <%= image_tag(cart_item.product.image.thumb.url, class: "img-thumbnail") %>
+    <%= image_tag(cart_item.product.image, class: "img-thumbnail") %>
     <% else %>
     <%= image_tag "http://via.placeholder.com/200x200?text=No+Pic", class: "img-thumbnail" %>
     <% end %>
