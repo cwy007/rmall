@@ -3,7 +3,7 @@
   <td>
     <%= link_to admin_product_path(product) do %>
       <% if product.image.present? %>
-        <%= image_tag product.image, class: "img-thumbnail" %>
+        <%= image_tag product.image.thumb.url, class: "img-thumbnail" %>
       <% else %>
         <%= image_tag "http://via.placeholder.com/200x200?text='NO+Pic'", class: "img-thumbnail" %>
       <% end %>
