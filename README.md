@@ -49,10 +49,38 @@ password: "password"
 heroku login -i
 heroku create
 figaro heroku:set -e production
-git push heroku master:master
+git push heroku master
 heroku run rake db:migrate
 heroku run rake db:seed
 heroku open
+```
+
+## heroku 支持的 ruby 版本
+
+```bash
+2.6.6, Rubygems: 3.0.3
+2.7.2, Rubygems: 3.1.4
+3.0.0, Rubygems: 3.2.3
+
+# https://devcenter.heroku.com/articles/ruby-support#supported-runtimes
+```
+
+## rails about
+
+```bash
+➜  rmall git:(master) ✗ rails about
+Resolving dependencies...
+About your application's environment
+Rails version             5.1.7
+Ruby version              2.6.6-p146 (x86_64-darwin20)
+RubyGems version          3.0.9
+Rack version              2.2.3
+JavaScript Runtime        Node.js (V8)
+Middleware                Rack::Sendfile, ActionDispatch::Static, ActionDispatch::Executor, ActiveSupport::Cache::Strategy::LocalCache::Middleware, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, ActionDispatch::RemoteIp, Sprockets::Rails::QuietAssets, Rails::Rack::Logger, ActionDispatch::ShowExceptions, WebConsole::Middleware, ActionDispatch::DebugExceptions, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, Rack::Head, Rack::ConditionalGet, Rack::ETag, Warden::Manager
+Application root          /Users/chanweiyan/beijing/rmall
+Environment               development
+Database adapter          sqlite3
+Database schema version   20180219052609
 ```
 
 ## 参考

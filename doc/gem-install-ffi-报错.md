@@ -184,7 +184,7 @@ In Gemfile:
 
 ## 解决方法
 
-rvm use ruby-2.6.5
+rvm use ruby-2.6.6
 
 bundle install
 
