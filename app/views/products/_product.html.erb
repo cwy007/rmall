@@ -2,7 +2,7 @@
   <div class="card product-cart col p-0">
     <%= link_to product_path(product) do %>
       <% if product.image.present? %>
-        <%= image_tag product.image.thumb.url, class: "card-img-top" %>
+        <%= image_tag product.image.url, class: "card-img-top" %>
       <% else %>
         <%= image_tag "http://via.placeholder.com/200x150?text=No+Pic", class: "card-img-top" %>
       <% end %>
