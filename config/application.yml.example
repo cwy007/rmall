@@ -1,0 +1,15 @@
+production:
+  qiniu_access_key: xxx
+  qiniu_secret_key: xxx
+  qiniu_bucket: rmall
+  qiniu_bucket_domain: p4fdh2evh.bkt.clouddn.com
+  SEND_CLOUD_USER_NAME: chanweiyan_test_Jb3iP3
+  SEND_CLOUD_USER_KEY: xxx
+
+development:
+  qiniu_access_key: xxx
+  qiniu_secret_key: xxx-V
+  qiniu_bucket: rmall
+  qiniu_bucket_domain: p4fdh2evh.bkt.clouddn.com
+  SEND_CLOUD_USER_NAME: chanweiyan_test_Jb3iP3
+  SEND_CLOUD_USER_KEY: xxx

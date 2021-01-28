@@ -86,4 +86,3 @@ end
 #                    order GET    /orders/:id(.:format)                 orders#show
 #           account_orders GET    /account/orders(.:format)             account/orders#index
 #                     root GET    /                                     products#index
-# 

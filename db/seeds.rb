@@ -14,23 +14,23 @@ Cart.destroy_all
 CartItem.destroy_all
 
 user = User.create! do |u|
-  u.email                 = "cwy@example.com"
+  u.email                 = "user@gmail.com"
   u.password              = "password"
   u.password_confirmation = "password"
 end
 admin = User.create! do |u|
-  u.email                 = "admin@example.com"
+  u.email                 = "admin@gmail.com"
   u.password              = "password"
   u.password_confirmation = "password"
   u.is_admin              = true
 end
 puts %{
   create an user:
-     email: "cwy@example.com"
+     email: "user@gmail.com"
   password: "password"
 
   create an admin:
-     email: "admin@example.com"
+     email: "admin@gmail.com"
   password: "password"
 }
 
@@ -43,6 +43,7 @@ if Product.count == 0
     'https://g-search1.alicdn.com/img/bao/uploaded/i4/i1/831562715/O1CN01aSCReP1VvVntNxe2a_!!0-item_pic.jpg_460x460Q90.jpg',
     'https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB1An8PRFXXXXbUXVXXXXXXXXXX_!!0-item_pic.jpg_460x460Q90.jpg'
   ]
+
   30.times { |i|
     Product.create!(
             title: "#{i+1} #{Faker::Commerce.product_name}",
