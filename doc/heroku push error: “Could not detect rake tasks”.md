@@ -8,3 +8,9 @@ Heroku seems to work well with bundler version 2.1.4. (not sure why) In my case 
 <https://stackoverflow.com/a/65333470/7166178>
 
 <https://stackoverflow.com/questions/36394297/heroku-push-error-could-not-detect-rake-tasks>
+
+## 最终的解决方式
+
+不要在 Gemfile 中指定 ruby 版本
+
+bundler 使用 1.17.3
