@@ -49,8 +49,9 @@ password: "password"
 heroku login -i
 heroku create
 figaro heroku:set -e production
-git push heroku main:master
+git push heroku master:master
 heroku run rake db:migrate
+heroku run rake db:seed
 heroku open
 ```
 
