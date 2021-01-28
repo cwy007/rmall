@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.6.6"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -39,7 +40,8 @@ gem "letter_opener", :group => :development
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'kaminari'
-gem 'aasm'
+gem "aasm", "~> 5.1", ">= 5.1.1"
+gem "after_commit_everywhere", "~> 0.1", ">= 0.1.5"
 gem 'carrierwave-qiniu', '~> 1.1.5'
 gem 'qiniu', '>= 6.9.0'
 gem 'figaro'

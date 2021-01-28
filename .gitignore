@@ -23,8 +23,7 @@
 .byebug_history
 
 config/database.yml
-config/secrets.yml
 public/uploads
 
-# Ignore application configuration
+# Ignore application configuration (figaro)
 config/application.yml

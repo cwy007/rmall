@@ -29,8 +29,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :orders
-  
+  has_many :orders, dependent: :destroy
+
   def name
     email.split('@').first
   end

@@ -13,7 +13,7 @@ Order.destroy_all
 Cart.destroy_all
 CartItem.destroy_all
 
-user = User.create! do |u|
+User.create! do |u|
   u.email                 = "user@gmail.com"
   u.password              = "password"
   u.password_confirmation = "password"
@@ -34,6 +34,10 @@ puts %{
   password: "password"
 }
 
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "public/images/seed/#{file_name}.jpeg"))
+end
+
 # seed fake products
 if Product.count == 0
   imgs = [
@@ -44,15 +48,23 @@ if Product.count == 0
     'https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB1An8PRFXXXXbUXVXXXXXXXXXX_!!0-item_pic.jpg_460x460Q90.jpg'
   ]
 
+  errno = 0
   30.times { |i|
-    Product.create!(
-            title: "#{i+1} #{Faker::Commerce.product_name}",
-      description: Faker::Lorem.paragraph,
-            price: Faker::Commerce.price,
-         quantity: rand(500),
-            image: open(imgs.sample),
-  )}
-  puts "新建30个商品"
+    begin
+      Product.create(
+              title: "#{i+1} #{Faker::Commerce.product_name}",
+        description: Faker::Lorem.paragraph,
+              price: Faker::Commerce.price,
+           quantity: rand(500),
+              image: open(imgs.sample))
+    rescue => exception
+      puts("#{i}: #{exception}")
+      errno += 1
+    else
+      puts(i)
+    end
+  }
+  puts "成功新建#{30 - errno}个商品"
 end
 
 # create 30 orders for admin

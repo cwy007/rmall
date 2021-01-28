@@ -6,7 +6,7 @@
 git clone git@github.com:cwy007/rmall.git
 cd rmall
 cp config/database.yml.default config/database.yml
-cp config/secrets.yml.default config/secrets.yml
+cp config/application.yml.default config/application.yml
 bundle check
 bundle install
 rails s
@@ -39,6 +39,21 @@ create an admin:
 password: "password"
 ```
 
+## 部署到 heroku
+
+[注册heroku账号](https://signup.heroku.com/)
+
+>`chanweiyan001@gmail.com`
+
+```bash
+heroku login -i
+heroku create
+figaro heroku:set -e production
+git push heroku main:master
+heroku run rake db:migrate
+heroku open
+```
+
 ## 参考
 
 * [更换gem源](https://gems.ruby-china.com/)
@@ -50,3 +65,5 @@ password: "password"
 * [关于linux下/srv、/var和/tmp的职责区分](https://blog.csdn.net/u012107143/article/details/54972544)
   >/srv ：主要用来存储本机或本服务器提供的服务或数据
   >服务器被用作Web开发时，html文件更应该被放在/srv/www下，而不是/var/www下（因为/srv目录是新标准中才有的，出现较晚；而且Apache将/var/www设为了web默认目录，所以现在绝大多数人都把web文件放在/var/www，这是个历史遗留问题）
+* [figaro](https://github.com/laserlemon/figaro)
+  >figaro heroku:set -e production
