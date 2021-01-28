@@ -51,4 +51,16 @@ Tasks: TOP => db:seed
 
 ## 解决方法
 
+```ruby
+
+Product.create!(
+            title: "#{i+1} #{Faker::Commerce.product_name}",
+      description: Faker::Lorem.paragraph,
+            price: Faker::Commerce.price,
+         quantity: rand(500),
+            image: open('https://img.alicdn.com/img/bao/uploaded/i4/i3/1917047079/O1CN0122AEDoAg4hs7Bom_!!0-item_pic.jpg_400x400Q50s50.jpg'),
+  )
+
+```
+
 ## 参考链接

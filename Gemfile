@@ -72,13 +72,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Please clean up duplicated gems if any.
 # Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)
-group :development, :test do
-  gem 'hirb'
-  gem 'hirb-unicode'
-  gem 'pry-byebug'
-  gem 'pry-stack_explorer'
-end
+
 
 group :production do
   gem 'pg'
+end
+
+# rails g awesome_rails_console:install
+group :development, :test do
+  gem 'hirb-unicode-steakknife', require: 'hirb-unicode'
+  gem 'hirb'
+  gem 'pry', '~> 0.12.2'
+  gem 'pry-byebug', '~> 3.7'
+  gem 'pry-stack_explorer'
 end
