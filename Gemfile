@@ -36,7 +36,7 @@ gem 'simple_form'
 gem "font-awesome-rails"
 gem 'devise'
 gem "letter_opener", :group => :development
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "mini_magick"
 gem 'kaminari'
 gem "aasm", "~> 5.1", ">= 5.1.1"
