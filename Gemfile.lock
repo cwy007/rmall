@@ -187,7 +187,8 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     qiniu (6.9.1)
       mime-types (~> 3.1)
       rest-client (~> 2.0)
@@ -328,7 +329,7 @@ DEPENDENCIES
   pry (~> 0.12.2)
   pry-byebug (~> 3.7)
   pry-stack_explorer
-  puma (~> 3.7)
+  puma (~> 4.3)
   qiniu (>= 6.9.0)
   rails (~> 5.1.4)
   rails-erd
